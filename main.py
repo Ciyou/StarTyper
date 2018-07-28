@@ -22,7 +22,7 @@ class Rect:
         if 'font' in self.kwargs:
             self.font = self.kwargs['font']
         else:
-            self.font = 'Hawaiian-Kids'
+            self.font = 'Hawaiian Kids'
 
         if 'size' in self.kwargs:
             self.size = self.kwargs['size']
@@ -54,7 +54,7 @@ class Rect:
         button = self.canvas.create_rectangle(
             self.x1, self.y1, self.x2, self.y2, fill=self.fill1, width=self.width)
         text = self.canvas.create_text(
-            (x2+x1)/2, (y2+y1)/2, text=self.text, font=self.font+" "+str(self.size))
+            (x2+x1)/2, (y2+y1)/2, text=self.text, font=(self.font,self.size))
 
         self.item = [button, shadow, text]
         self.sub = []
@@ -130,7 +130,7 @@ def start_scene():
     bg_fragment = []
     global state
     state = 'keep'
-    canvas = tk.Canvas(main_window, bg=None, width=400, height=600)
+    canvas = tk.Canvas(main_window, bg='white', width=400, height=600)
 
     def game_start(event):
         global state
@@ -246,7 +246,7 @@ def start_scene():
         button_canvas_1.update()
         button_canvas_2.update()
         button_canvas_3.update()
-        time.sleep(0.01)
+        time.sleep(0.015)
 
 
 start_scene()
